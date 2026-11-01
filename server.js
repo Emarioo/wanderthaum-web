@@ -4,9 +4,11 @@
     Looks fine in VSCode or on GitHub could be converted to crazy stuff with whole sections italicized and invalid links.
 */
 
-const PORT = 8080;
-// const stats_path = "stats.json"
-
+const PORT = process.env.PORT;
+if (!PORT) {
+        console.log("ERROR: PORT is undefined")
+        process.exit()
+}
 
 const http = require("http");
 const https = require("https");
@@ -76,7 +78,7 @@ function is_path_sanitized(filename) {
 async function requestListener(req, res) {
     // TODO: Rate limit
     // console.log(req)
-    console.log("REQ ", req.url)
+    // console.log("REQ ", req.url)
     var root = "public/";
     let url_split = req.url.split("?")
     let base_part = url_split[0];
@@ -176,7 +178,7 @@ async function requestListener(req, res) {
             }
         }
     } else {
-        // logger.info("Suspicious request '"+path+"'")
+        logger.info("Suspicious request '"+path+"'")
         // we don't respond to suspicious requests
         res.end()
         return
