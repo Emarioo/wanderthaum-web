@@ -1,0 +1,549 @@
+
+<!-- 
+This page has been AI generated with a few tweaks
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#171b17">
+    <title>Wanderthaum — The Living World</title>
+    <meta name="description" content="Wanderthaum is a fantasy adventure about exploration, discovery, and finding your own path.">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="img/favicon_io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon_io/favicon-16x16.png">
+    <link rel="manifest" href="img/favicon_io/site.webmanifest">
+
+    <style>
+        :root {
+            --background: #171b17;
+            --background-light: #20271f;
+            --text: #e9e3d3;
+            --muted: #aaa995;
+            --gold: #c5a66a;
+            --border: #424638;
+            --serif: Georgia, "Times New Roman", serif;
+            --sans: "Segoe UI", sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: var(--background);
+            color: var(--text);
+            font-family: var(--sans);
+            line-height: 1.6;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .container {
+            width: min(1120px, 90%);
+            margin: auto;
+        }
+
+        /* Navigation */
+
+        header {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 10;
+            border-bottom: 1px solid #ffffff20;
+        }
+
+        nav {
+            min-height: 76px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-family: var(--serif);
+            font-size: 1.65rem;
+            letter-spacing: 2px;
+            color: var(--gold);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            font-size: 0.9rem;
+            color: #ddd8ca;
+        }
+
+        .nav-links a:hover {
+            color: var(--gold);
+        }
+
+        /* Hero */
+
+        .hero {
+            min-height: 760px;
+            height: 95vh;
+            max-height: 1000px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            background:
+                linear-gradient(to bottom, #10151055, #171b17 100%),
+                linear-gradient(to right, #10151088, #10151022, #10151088),
+                url("images/hero-world.jpg") center 55% / cover;
+        }
+
+        .hero-content {
+            width: min(800px, 90%);
+            margin: 60px auto 0;
+        }
+
+        .eyebrow {
+            color: var(--gold);
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            font-size: 0.75rem;
+            margin-bottom: 22px;
+        }
+
+        h1, h2, h3 {
+            font-family: var(--serif);
+            font-weight: normal;
+        }
+
+        h1 {
+            font-size: clamp(3.5rem, 9vw, 6.5rem);
+            line-height: 1;
+            letter-spacing: 3px;
+            margin-bottom: 25px;
+        }
+
+        .hero p {
+            max-width: 580px;
+            margin: auto;
+            color: #e0dfd4;
+            font-size: 1.15rem;
+        }
+
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 14px;
+            margin-top: 38px;
+            flex-wrap: wrap;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 13px 27px;
+            border: 1px solid var(--gold);
+            color: var(--gold);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-size: 0.78rem;
+            transition: 0.2s;
+        }
+
+        .button.primary {
+            background: var(--gold);
+            color: #171b17;
+        }
+
+        .button:hover {
+            background: #e0c58d;
+            color: #171b17;
+        }
+
+        /* General sections */
+
+        section {
+            padding: 110px 0;
+        }
+
+        .section-heading {
+            text-align: center;
+            max-width: 680px;
+            margin: 0 auto 55px;
+        }
+
+        .section-heading h2 {
+            font-size: clamp(2.2rem, 5vw, 3.5rem);
+            margin-bottom: 18px;
+        }
+
+        .section-heading p {
+            color: var(--muted);
+        }
+
+        .gold-line {
+            width: 55px;
+            height: 1px;
+            background: var(--gold);
+            margin: 25px auto;
+        }
+
+        /* Introduction */
+
+        .introduction {
+            text-align: center;
+            background: var(--background);
+        }
+
+        .introduction .description {
+            max-width: 760px;
+            margin: auto;
+            color: #c5c4b7;
+            font-family: var(--serif);
+            font-size: 1.35rem;
+            line-height: 1.9;
+        }
+
+        /* World image */
+
+        .world-section {
+            padding-top: 20px;
+        }
+
+        .world-image {
+            height: 480px;
+            background:
+                linear-gradient(#171b1740, #171b1770),
+                url("img/mini_page.png") center / cover;
+            border: 1px solid var(--border);
+            display: flex;
+            align-items: end;
+            padding: 35px;
+        }
+
+        .world-image p {
+            font-family: var(--serif);
+            font-size: 1.6rem;
+            max-width: 420px;
+        }
+
+        /* Features */
+
+        .features {
+            background: var(--background-light);
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .feature {
+            border-top: 1px solid var(--border);
+            padding-top: 25px;
+        }
+
+        .feature-image {
+            height: 190px;
+            margin-bottom: 25px;
+            background-position: center;
+            background-size: cover;
+            border: 1px solid var(--border);
+        }
+
+        .feature h3 {
+            font-size: 1.55rem;
+            margin-bottom: 12px;
+        }
+
+        .feature p {
+            color: var(--muted);
+            font-size: 0.95rem;
+        }
+
+        .feature:nth-child(1) .feature-image {
+            background-image: url("images/exploration.jpg");
+        }
+
+        .feature:nth-child(2) .feature-image {
+            background-image: url("images/adventure.jpg");
+        }
+
+        .feature:nth-child(3) .feature-image {
+            background-image: url("images/magic.jpg");
+        }
+
+        /* Development */
+
+        .development {
+            text-align: center;
+        }
+
+        .development-content {
+            max-width: 700px;
+            margin: auto;
+        }
+
+        .development h2 {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+        }
+
+        .development p {
+            color: var(--muted);
+            margin-bottom: 30px;
+        }
+
+        /* Footer */
+
+        footer {
+            border-top: 1px solid var(--border);
+            padding: 35px 0;
+            color: var(--muted);
+            font-size: 0.85rem;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        @media (max-width: 750px) {
+            .nav-links {
+                gap: 15px;
+                font-size: 0.8rem;
+            }
+
+            .hero {
+                min-height: 650px;
+            }
+
+            .feature-grid {
+                grid-template-columns: 1fr;
+                gap: 45px;
+            }
+
+            .feature-image {
+                height: 240px;
+            }
+
+            .world-image {
+                height: 340px;
+            }
+
+            section {
+                padding: 75px 0;
+            }
+        }
+
+        @media (max-width: 480px) {
+            nav {
+                align-items: flex-start;
+                padding: 18px 0;
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            .nav-links {
+                flex-wrap: wrap;
+            }
+
+            .hero {
+                min-height: 620px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <div class="container">
+        <nav>
+            <a href="#" class="logo">WANDERTHAUM</a>
+
+            <div class="nav-links">
+                <a href="#world">The World</a>
+                <a href="#adventure">Adventure</a>
+                <a href="#development">Development</a>
+            </div>
+        </nav>
+    </div>
+</header>
+
+<main>
+
+    <section class="hero">
+        <div class="hero-content">
+            <div class="eyebrow">An independent fantasy adventure</div>
+
+            <h1>Wanderthaum</h1>
+
+            <p>
+                A world to explore. A path of your own.
+                Venture into the unknown, discover forgotten places,
+                and make your own story.
+            </p>
+
+            <div class="hero-buttons">
+                <a href="#world" class="button primary">Discover the World</a>
+                <a href="#development" class="button">Development</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="introduction">
+        <div class="container">
+            <div class="eyebrow">Your journey begins</div>
+
+            <h2 style="font-family: var(--serif); font-size: 2.7rem;">
+                There is no single path.
+            </h2>
+
+            <div class="gold-line"></div>
+
+            <p class="description">
+                Leave the familiar behind and step into a world filled
+                with distant lands, quiet settlements, dangerous creatures,
+                and mysteries waiting to be uncovered.
+                Become an adventurer, a merchant, a wanderer —
+                or something entirely your own.
+            </p>
+        </div>
+    </section>
+
+    <section class="world-section" id="world">
+        <div class="container">
+            <div class="world-image">
+                <p>
+                    Beyond the road lies a world waiting to be discovered.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="features" id="adventure">
+        <div class="container">
+            <div class="section-heading">
+                <div class="eyebrow">Make your own adventure</div>
+                <h2>A world of possibilities</h2>
+                <p>
+                    Set out with little more than what you can carry.
+                    Discover what the world has to offer, and decide
+                    what kind of life you want to lead.
+                </p>
+            </div>
+
+            <div class="feature-grid">
+
+                <article class="feature">
+                    <div class="feature-image"></div>
+                    <h3>Explore</h3>
+                    <p>
+                        Wander through forests, plains and settlements.
+                        Find hidden places, meet unfamiliar people,
+                        and see what lies beyond the horizon.
+                    </p>
+                </article>
+
+                <article class="feature">
+                    <div class="feature-image"></div>
+                    <h3>Adventure</h3>
+                    <p>
+                        Hunt creatures, gather resources, trade,
+                        fish and take on challenges.
+                        Earn your place in the world.
+                    </p>
+                </article>
+
+                <article class="feature">
+                    <div class="feature-image"></div>
+                    <h3>Discover</h3>
+                    <p>
+                        Uncover the secrets of magic.
+                        Seek knowledge, learn new abilities,
+                        and explore the mysteries of the world.
+                    </p>
+                </article>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="development" id="development">
+        <div class="container">
+            <div class="development-content">
+                <div class="eyebrow">An adventure in the making</div>
+                <h2>The journey is underway.</h2>
+
+                <p>
+                    Wanderthaum is an independent game currently in
+                    development. Follow its progress, see what's being
+                    built, and discover where the journey leads.
+                </p>
+
+                <a href="roadmap.html" class="button primary">
+                    View the Roadmap
+                </a>
+
+                <a href="devlog.html" class="button" style="margin-left: 8px;">
+                    Read the Devlog
+                </a>
+            </div>
+        </div>
+    </section>
+
+</main>
+
+<footer>
+    <div class="container footer-content">
+        <span>© 2026 Wanderthaum</span>
+        <span>This website is mostly AI-generated (web development is not my strong suit)</span>
+    </div>
+</footer>
+
+</body>
+</html>
+
+<!---
+
+@TODO Add these images, here is some context about what kind of images
+
+Images I'd prioritise
+The images will make or break this design. I'd avoid generic fantasy stock art and aim for images that look like they came directly from the game, even if they're early screenshots.
+
+1. Hero — hero-world.jpg
+
+A wide landscape showing a beautiful, inviting part of the world. Ideally a settlement in the distance, forests, hills, and a path leading into the scene. This is the most important image.
+
+2. World — world-landscape.jpg
+
+A panoramic view of the environment. Something that communicates scale and makes people want to walk around and explore.
+
+3. Exploration — exploration.jpg
+
+A camp, marketplace, or small village. Show the everyday life and grounded side of the world.
+
+4. Adventure — adventure.jpg
+
+A character exploring, fighting, fishing, or doing something in the world.
+
+
+5. Magic — magic.jpg
+
+A magical location, academy, ancient library, or spell being cast. Keep it mysterious rather than overly flashy.
+
+-->
+
