@@ -13,7 +13,7 @@ if (!PORT) {
 const http = require("http");
 const https = require("https");
 const fs = require("fs");
-const path_module = require('path');
+const PATH = require('path');
 const Logger = require('./logger.js');
 
 let logger = new Logger({ log_dir: "logs/website" })
@@ -75,6 +75,36 @@ function is_path_sanitized(filename) {
     }
     return true;
 }
+const PAGE_DIR = PATH.resolve("public")
+
+function renderPage(filename, origin_page, depth = 0) {
+    // console.log("PROC", filename, origin_page)
+    if (depth > 16) {
+        return ""
+        // throw new Error("Maximum include depth exceeded");
+    }
+
+    const filepath = PATH.resolve(PAGE_DIR, filename);
+
+    if (!filepath.startsWith(PAGE_DIR + PATH.sep) && filepath !== PAGE_DIR) {
+        return ""
+    }
+
+    let html = fs.readFileSync(filepath, "utf8");
+
+    html = html.replace(
+        /#IF_PAGE\((.*?),\s*(.*?)\)/g,
+        (_, target, value) => origin_page.indexOf(target) != -1 ? value : ""
+    );
+
+    html = html.replace(
+        /#INCLUDE\((.*?)\)/g,
+        (_, include) => renderPage(include.trim(), origin_page, depth + 1)
+    );
+
+    return html;
+}
+
 async function requestListener(req, res) {
     // TODO: Rate limit
     // console.log(req)
@@ -82,7 +112,7 @@ async function requestListener(req, res) {
     var root = "public/";
     let url_split = req.url.split("?")
     let base_part = url_split[0];
-    var path = path_module.join("public/", base_part).replaceAll("\\","/");
+    var path = PATH.join("public/", base_part).replaceAll("\\","/");
     
     // console.log(req.url)
     
@@ -116,6 +146,7 @@ async function requestListener(req, res) {
 
     
     if(base_part == "/") {
+        base_part += "index.html"
         path += "index.html"
     }
     // console.log("REQ",path)
@@ -126,8 +157,8 @@ async function requestListener(req, res) {
             const ext = path.substring(path.lastIndexOf(".")+1)
             
             // console.log("Read",path, "ext",ext)
-            let data;
-            let type = "text/html"
+            let data = "";
+            let type = "text/html";
             if(ext == "jpg") {
                 type = "image/jpg"
                 data = fs.readFileSync(path);
@@ -135,10 +166,22 @@ async function requestListener(req, res) {
                 type = "image/png"
                 data = fs.readFileSync(path);
             } else {
-                if(ext == "svg")
-                    type = "image/svg+xml"
-                data = fs.readFileSync(path, 'utf8');
+                if (ext == "html") {
+                    type = "text/html"
+                    let subpath = base_part.replaceAll("\\","/").substring(1)
+                    data = renderPage(subpath, subpath)
+                } else {
+                    if(ext == "svg") {
+                        type = "image/svg+xml"
+                    } else  if(ext == "js") {
+                        type = "text/javascript"
+                    } else  if(ext == "css") {
+                        type = "text/css"
+                    }
+                    data = fs.readFileSync(path, 'utf8');
+                }
             }
+
 
             res.writeHead(200, {'Content-Type': type, 'Content-Length': data.length});
 
